@@ -104,7 +104,6 @@ Vytvorenie config súboru `tsconfig.json` s týmto obsahom:
     ]
   },
   "include": [
-    // process only spec files
     "**/*.ts"
   ]
 }
