@@ -1,4 +1,11 @@
 {
+    "projectId": "3ntb6u",
     "baseUrl": "https://demo.todos.kros.wtf",
-    "testFiles": "**/*.feature"
+    "testFiles": "**/*.feature",
+    "OAuthUrl": "https://login.kros.wtf",
+    "OAuthClientId": "Demo.BestPractices.Postman",
+    "OAuthUsername": "integrationtests@kros.sk",
+    "OAuthPassword": "integrationtests",
+    "UserEmail": "integrationtests@kros.sk",
+    "UserName": "Integration Tests"
 }

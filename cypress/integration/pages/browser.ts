@@ -8,6 +8,10 @@ export class Browser {
     cy.visit(location);
   }
 
+  public static login() {
+    cy.login();
+  }
+
   public static reload() {
     cy.reload();
   }

@@ -136,3 +136,20 @@ Pre napísanie prvého testu potrebujeme 2 vytvoriť súbory:
 - first.ts súbor (definície krokov scenára) v cypress/integration/step-definitions 
 
 Začneme písaním scenára v .feature súbori
+
+# Level 4 - Scenáre 
+
+Napíšeme si komplikovanejšie scenáre a ukážeme si, čo všetko cucumber dokáže.
+Zároveň už využijeme aj Page Object Pattern.
+
+Všetky scenáre sú v súbore `cypress/integration/features/organizations.feature`
+
+## 4.1  Scenár s parametrom
+
+## 4.2 Pozadie scenára
+
+## 4.3 Scenár s množstvom parametrov
+
+## 4.4 Náčrt scenára a príklady
+
+
