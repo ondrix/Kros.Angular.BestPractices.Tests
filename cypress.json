@@ -3,6 +3,7 @@
     "baseUrl": "https://demo.todos.kros.wtf",
     "testFiles": "**/*.feature",
     "OAuthUrl": "https://login.kros.wtf",
+    "ProjectName": "Demo.BestPractices",
     "OAuthClientId": "Demo.BestPractices.Postman",
     "OAuthUsername": "integrationtests@kros.sk",
     "OAuthPassword": "integrationtests",
