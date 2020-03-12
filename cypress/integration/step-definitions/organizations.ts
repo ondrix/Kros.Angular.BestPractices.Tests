@@ -11,8 +11,12 @@ Given('navštívim stránku best practices', () => {
     Browser.visit('/');
 });
 
-When('kliknem na tlačidlo organizácií', () => {
+Given('kliknem na tlačidlo organizácií', () => {
     BestPracticesHeader.clickAtOgranizations();
+});
+
+Given('existuje firma {string}', (comapnyName: string) => {
+    Organizations.shouldContainCompanyInList(comapnyName);
 });
 
 When('kliknem na tlačidlo pridať organizáciu', () => {
@@ -25,6 +29,10 @@ When('zadám názov firmy {string} a IČO {string}', (companyName: string, bussi
 
 When('kliknem na tlačidlo uložiť', () => {
     Organizations.clickSave();
+});
+
+When('kliknem na tlačidlo vymazať', () => {
+    Organizations.clickRemove();
 });
 
 Then('v zozname sa zobrazí novo pridaná firma', () => {
