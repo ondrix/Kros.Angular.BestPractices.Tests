@@ -146,10 +146,19 @@ Všetky scenáre sú v súbore `cypress/integration/features/organizations.featu
 
 ## 4.1  Scenár s parametrom
 
+V oraganizations.feature vytvoríme prvý scenár, 
+v ktorom založíme novú firmu s ľubovolným názvom a IČOm.
+
 ## 4.2 Pozadie scenára
+
+K požiadavke pridáme ďalší scenár, ktorý nám našu pridanú firmu vymaže. V tomto prípade
+si zavedieme pozadie scenára.
 
 ## 4.3 Scenár s množstvom parametrov
 
+Ak máme veľa parametrov v kroku scenára, dokážeme ich uložiť do prehľadnej tabuľky.
+
 ## 4.4 Náčrt scenára a príklady
 
+Ak sa nám scenár opakuje viackrát s rôznymi hodnotami, môžeme využiť náčrt scenára.
 
