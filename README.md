@@ -1,5 +1,4 @@
 # Level 0 - Čo potrebujem na vývoj
-
 Na vývoj je odporúčaný Visual Studio Code (Odkaz na stiahnutie: https://code.visualstudio.com/). 
 
 Spolu s ním pre lepšiu prácu s testami je odporúčaná inštalácia nasledovných rozšírení: 
