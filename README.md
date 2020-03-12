@@ -1,4 +1,4 @@
-# Level 1
+# Level 1 - Založenie projektu a nakonfigurovanie Cypress + Cucumber + Typescript
 
 
 ### Založenie projektu
@@ -127,3 +127,6 @@ module.exports = {
     }
 };  
 ```
+
+
+# Level 2 - Registrácia užívateľov
