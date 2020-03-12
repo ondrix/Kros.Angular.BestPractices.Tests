@@ -1,5 +1,42 @@
-# Level 1 - Založenie projektu a nakonfigurovanie Cypress + Cucumber + Typescript
+# Level 0 - Čo potrebujem na vývoj
+Na vývoj je odporúčaný Visual Studio Code (Odkaz na stiahnutie: https://code.visualstudio.com/).
+Potrebné je mať nainštalovaný Node.js (odkaz na stiahnutie: https://nodejs.org/en/).
 
+Spolu s ním pre lepšiu prácu s testami je odporúčaná inštalácia nasledovných rozšírení: 
+
+ 
+
+Angular Essentials 
+
+https://marketplace.visualstudio.com/items?itemName=johnpapa.angular-essentials 
+
+Cypress Snippets 
+
+https://marketplace.visualstudio.com/items?itemName=andrew-codes.cypress-snippets 
+
+Cucumber (Gherkin) Full Support 
+
+https://marketplace.visualstudio.com/items?itemName=alexkrechik.cucumberautocomplete 
+
+Najzákladnejšie nastavenia je potrebné vložiť do súboru .vs/settings.json
+
+Ak adresár .vs neexistuje, môžeme ho vytvoriť ručne. Nastavenia sú uvedené nižšie:
+
+ ```
+{
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "cucumberautocomplete.steps": [
+    "cypress/**/*.ts"
+  ],
+  "cucumberautocomplete.syncfeatures": "cypress/e2e/features/**/*feature",
+  "explorer.compactFolders": false,
+}
+ ```
+
+Stručný návod, ako používať Cypress je aj na našej Wiki https://krosza.sharepoint.com/:o:/s/Webovfakturcia/Eqb-iUaiiFhIll3Mg-YUzAcBq8LNoTAdOGGVhCiXT8pjaQ?e=gJA6XE
+
+
+# Level 1 - Založenie projektu a nakonfigurovanie Cypress + Cucumber + Typescript
 
 ### Založenie projektu
 V konzole sa nastav na adresár určený pre nový projekt, zadaj príkaz `npm init` a vyplň vlastnosti pre projekt. 
@@ -31,7 +68,7 @@ Pridanie shortcut skriptu do `package.json` súboru.
 ```
 
 
-# Spustenie Cypressu s jeho examples testami
+### Spustenie Cypressu s jeho examples testami
 Ak si za firemnou proxy:
 `npm run cypress`
 
@@ -68,7 +105,6 @@ Vytvorenie config súboru `tsconfig.json` s týmto obsahom:
     ]
   },
   "include": [
-    // process only spec files
     "**/*.ts"
   ]
 }
@@ -127,18 +163,31 @@ module.exports = {
     }
 };  
 ```
+
+
 # Level 2 - Registrácia užívateľov
+Pre pokrytie oblasti registrovania užívateľov budem postupovať takto:
+- vytvorím súbor `registration.feature` (pre scenáre) v cypress/integration/
+- vytovrím súbor `registration.ts` (definície krokov scenárov) v cypress/integration/step-definitions/
+- vytvorím všetky súbory v adresáry cypress/integration/pages/
+- vytvorím súbor `constants.ts` (konštanty celého projektu) v cypress/support/
+- do súboru `cypress.json` pridám nastavenie pre testovaciu appku
+  ```json
+  {
+    "baseUrl": "https://demo.todos.kros.wtf",
+  }
+  ```
+
 
 # Level 3 - Môj prvý test
-
 Pre napísanie prvého testu potrebujeme 2 vytvoriť súbory:
 - first.feature súbor (scenár) v cypress/integration/
 - first.ts súbor (definície krokov scenára) v cypress/integration/step-definitions 
 
 Začneme písaním scenára v .feature súbori
 
-# Level 4 - Scenáre 
 
+# Level 4 - Scenáre 
 Napíšeme si komplikovanejšie scenáre a ukážeme si, čo všetko cucumber dokáže.
 Zároveň už využijeme aj Page Object Pattern.
 
