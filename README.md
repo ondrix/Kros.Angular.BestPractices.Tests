@@ -130,5 +130,7 @@ module.exports = {
 # Level 3 - Môj prvý test
 
 Pre napísanie prvého testu potrebujeme 2 vytvoriť súbory:
-- .feature súbor (scenár)
-- .ts súbor v step-definitions (definície krokov scenára)
+- first.feature súbor (scenár) v cypress/integration/
+- first.ts súbor (definície krokov scenára) v cypress/integration/step-definitions 
+
+Začneme písaním scenára v .feature súbori
