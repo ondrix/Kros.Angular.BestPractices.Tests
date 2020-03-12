@@ -32,9 +32,11 @@ Ak adresár .vs neexistuje, môžeme ho vytvoriť ručne. Nastavenia sú uveden�
 }
  ```
 
- Stručný návod, ako používať Cypress je aj na našej Wiki https://krosza.sharepoint.com/:o:/s/Webovfakturcia/Eqb-iUaiiFhIll3Mg-YUzAcBq8LNoTAdOGGVhCiXT8pjaQ?e=gJA6XE
- 
-# Level 1
+Stručný návod, ako používať Cypress je aj na našej Wiki https://krosza.sharepoint.com/:o:/s/Webovfakturcia/Eqb-iUaiiFhIll3Mg-YUzAcBq8LNoTAdOGGVhCiXT8pjaQ?e=gJA6XE
+
+
+
+# Level 1 - Založenie projektu a nakonfigurovanie Cypress + Cucumber + Typescript
 
 
 ### Založenie projektu
@@ -67,7 +69,7 @@ Pridanie shortcut skriptu do `package.json` súboru.
 ```
 
 
-# Spustenie Cypressu s jeho examples testami
+### Spustenie Cypressu s jeho examples testami
 Ak si za firemnou proxy:
 `npm run cypress`
 
