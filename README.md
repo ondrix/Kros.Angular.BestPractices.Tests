@@ -170,7 +170,7 @@ Pre pokrytie oblasti registrovania užívateľov budem postupovať takto:
 - vytovrím súbor `registration.ts` (definície krokov scenárov) v cypress/integration/step-definitions/
 - vytvorím všetky súbory v adresáry cypress/integration/pages/
 - vytvorím súbor `constants.ts` (konštanty celého projektu) v cypress/support/
-- do suboru `cypress.json` pridám nastavenie pre testovaciu appku
+- do súboru `cypress.json` pridám nastavenie pre testovaciu appku
   ```json
   {
     "baseUrl": "https://demo.todos.kros.wtf",
