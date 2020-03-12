@@ -1,4 +1,4 @@
-# Level 1
+# Level 1 - Začíname
 
 
 ### Založenie projektu
@@ -127,3 +127,8 @@ module.exports = {
     }
 };  
 ```
+# Level 3 - Môj prvý test
+
+Pre napísanie prvého testu potrebujeme 2 vytvoriť súbory:
+- .feature súbor (scenár)
+- .ts súbor v step-definitions (definície krokov scenára)
