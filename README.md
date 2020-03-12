@@ -165,3 +165,14 @@ module.exports = {
 
 
 # Level 2 - Registrácia užívateľov
+Pre pokrytie oblasti registrovania užívateľov budem postupovať takto:
+- vytvorím súbor `registration.feature` (pre scenáre) v cypress/integration/
+- vytovrím súbor `registration.ts` (definície krokov scenárov) v cypress/integration/step-definitions/
+- vytvorím všetky súbory v adresáry cypress/integration/pages/
+- vytvorím súbor `constants.ts` (konštanty celého projektu) v cypress/support/
+- do suboru `cypress.json` pridám nastavenie pre testovaciu appku
+  ```json
+  {
+    "baseUrl": "https://demo.todos.kros.wtf",
+  }
+  ```
