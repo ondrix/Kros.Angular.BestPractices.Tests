@@ -23,7 +23,7 @@ Požiadavka: Registrácia užívateľa
     Tak som informovaný, že užívateľ už existuje
 
   Náčrt Scenáru: Neúspešná registrácia užívateľa, ktorý zadá nesprávne údaje
-    Keď nesprávne vyplním registračné údaje '<email>' '<password>' '<confirmPassword>' '<acceptLicenseTerms>'
+    Keď nesprávne vyplním registračné údaje "<email>" "<password>" "<confirmPassword>" "<acceptLicenseTerms>"
     A kliknem na tlačidlo vytvoriť účet
     Tak som informovaný, že som nesprávne vyplnil údaje
 
