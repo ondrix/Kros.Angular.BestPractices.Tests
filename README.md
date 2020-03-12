@@ -1,4 +1,4 @@
-# Level 1 - Začíname
+# Level 1 - Založenie projektu a nakonfigurovanie Cypress + Cucumber + Typescript
 
 
 ### Založenie projektu
@@ -127,6 +127,8 @@ module.exports = {
     }
 };  
 ```
+# Level 2 - Registrácia užívateľov
+
 # Level 3 - Môj prvý test
 
 Pre napísanie prvého testu potrebujeme 2 vytvoriť súbory:
