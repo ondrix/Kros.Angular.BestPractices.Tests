@@ -211,3 +211,14 @@ Ak máme veľa parametrov v kroku scenára, dokážeme ich uložiť do prehľadn
 
 Ak sa nám scenár opakuje viackrát s rôznymi hodnotami, môžeme využiť náčrt scenára.
 
+
+# Level 5 - Scenáre pre Todos
+Skúste teraz sami pokryt testami Todos v appke. Čo treba pokryt?
+- vytvorenie nových Todos (s rôznymi hodnotami)
+- načítanie všetkých Todos
+- zmena názvu, description a stavu pre Todo
+- odfiltrovanie poznámok podľa ich stavu
+- vymazanie všetkých Todos, ktoré majú stav `Completed`
+- vymazanie všetkých Todos
+
+

@@ -2,7 +2,7 @@ export class Organizations {
 
     private static companyName: string;
     private static companyRowIds: number[];
-    
+
     static shouldContainCompanyInList(comapnyName: string) {
         cy.get('kros-company-item > .company-grid > .name').each((element, index) => {
             //ak sa zhoduju nazvy, zarad ho na vymazanie

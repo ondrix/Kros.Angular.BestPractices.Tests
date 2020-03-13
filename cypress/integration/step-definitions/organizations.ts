@@ -3,14 +3,6 @@ import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps';
 import { Organizations } from '../pages/best-practices/organizations';
 import { BestPracticesHeader } from '../pages/best-practices/best-practices-header';
 
-Given('som prihlásený', () => {
-    Browser.login();
-});
-
-Given('navštívim stránku best practices', () => {
-    Browser.visit('/');
-});
-
 Given('kliknem na tlačidlo organizácií', () => {
     BestPracticesHeader.clickAtOgranizations();
 });

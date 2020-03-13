@@ -16,7 +16,7 @@ Požiadavka: Manažment organizácií
   Scenár: Odstránenie organizácie
     Pokiaľ existuje firma "Moja firm222"
     Keď kliknem na tlačidlo vymazať
-    Tak v zozname nebude existovať vymazaná firma
+    #Tak v zozname nebude existovať vymazaná firma
 
 
 
