@@ -1,29 +1,46 @@
 import { Browser } from "../browser";
 
 export class Todos {
+
+    private static All: string = "All";
+    private static Active: string = "Active";
+    private static Completed: string = "Completed";
+
     private static todoName: string;
     private static todoDesc: string;
 
     static typeInNewTodoFields(todoName: string, todoDesc: string) {
-        cy.get('[data-test=add-todo-item-name]').type(todoName);
-        cy.get('[data-test=add-todo-item-description]').type(todoDesc);
+        cy.get('[data-test=add-todo-item-name]').clear().type(todoName);
+        cy.get('[data-test=add-todo-item-description]').clear().type(todoDesc);
     
-        cy.server();
-        cy.route('POST', '**ToDos').as('createRoute');
+        Browser.setupAwaitedRoutes([
+            {method: 'POST', url: /organizations\/\d+\/ToDos/ }
+        ]);
         cy.get('[data-test=add-todo-item-button]').click({force: true});
-        cy.wait(['@createRoute']);
+        Browser.waitForRoutes();
     }
 
     static clickAtTodoTab() {
         cy.get('[data-test=app-component-todo-list-menu]').click({ force: true });
     }
 
-    static existsAnyTodos() {
+    static shouldExistsAnyTodos() {
         cy.get('[data-test=todo-list-all-items] li')
             .should('have.length.greaterThan', 0);
     }
 
-    static notExistsAnyTodos() {
+    static shouldTodosCount(count: number) {
+        cy.get('[data-test=todo-list-all-items] li').should("have.length", count);
+    }
+
+    static shouldOnlyNotCheched() {
+        cy.get('[data-test=todo-item-is-done]')
+            .each(($el) => {
+                cy.wrap($el).should('not.be.checked');
+            });
+    }
+
+    static shouldNotExistsAnyTodos() {
         cy.get('[data-test=todo-list-group-item]').should('have.length', 0);
     }
 
@@ -37,37 +54,39 @@ export class Todos {
             .check();
 
         Browser.waitForRoutes();
-
-        cy.get('[data-test=todo-item-is-done]').should('be.checked');
     }
 
     static setActiveFilter() {
-        Browser.setupAwaitedRoutes([
-            {method: 'GET', url: /organizations\/\d+\/ToDos/ }
-        ]);
-        
-        cy.get('[data-test=todo-list-filter-active]').click({force: true});
-
-        Browser.waitForRoutes();
+        Todos.setFilterType(Todos.Active);
     }
 
     static setAllFilter() {
-        Browser.setupAwaitedRoutes([
-            {method: 'GET', url: /organizations\/\d+\/ToDos/ }
-        ]);
-        
-        cy.get('[data-test=todo-list-filter-all]').click({force: true});
-
-        Browser.waitForRoutes();
+        Todos.setFilterType(Todos.All);
     }
 
     static setCompleteFilter() {
+        Todos.setFilterType(Todos.Completed);
+    }
+
+    private static setFilterType(filterType: string) {
+        let dataFilterType;
+        
+        switch (filterType) {
+            case Todos.All:
+                dataFilterType = "todo-list-filter-all";
+                break;
+            case Todos.Active:
+                dataFilterType = "todo-list-filter-active";
+                break;
+            case Todos.Completed:
+                dataFilterType = "todo-list-filter-completed";
+                break;
+        }
+
         Browser.setupAwaitedRoutes([
             {method: 'GET', url: /organizations\/\d+\/ToDos/ }
         ]);
-        
-        cy.get('[data-test=todo-list-filter-completed]').click({force: true});
-
+        cy.get(`[data-test=${dataFilterType}]`).click({force: true});
         Browser.waitForRoutes();
     }
 
@@ -75,9 +94,7 @@ export class Todos {
         Browser.setupAwaitedRoutes([
             {method: 'DELETE', url: /organizations\/\d+\/ToDos\/deleteCompleted/ }
         ]);
-        
-        cy.get('[data-test=todo-list-delete-completed-button]').click({force: true});
-
+        cy.get("[data-test=todo-list-delete-completed-button]").click({force: true});
         Browser.waitForRoutes();
     }
 
@@ -115,7 +132,7 @@ export class Todos {
         Browser.waitForRoutes();
     }
 
-    static lastTodoHasNewValues() {
+    static shouldLastTodoHasNewValues() {
         cy.get('[data-test=todo-item-name]').last().should('have.text', this.todoName);
 
         cy.get('[data-test=todo-list-all-items] [data-test=todo-list-group-item]:last-child [data-test=todo-item-edit-button]')
@@ -127,5 +144,15 @@ export class Todos {
         cy.get('[data-test=edit-todo-description-input]').should("have.value", this.todoDesc);
 
         cy.get('[data-test=edit-todo-close-button-top-right]').click({force: true});
+    }
+
+    static deleteAllTodos() {
+        cy.get('[data-test=todo-list-all-items]').then((container) => {
+            if (container.children().length) {
+                // Info about multiple parameters: https://docs.cypress.io/api/commands/click.html#Click-all-buttons-found-on-the-page
+                cy.get('[data-test=todo-item-delete-button]').click({ multiple: true, force: true });
+                cy.get('[data-test=todo-list-group-item]').should('have.length', 0);
+            }
+        })
     }
 }

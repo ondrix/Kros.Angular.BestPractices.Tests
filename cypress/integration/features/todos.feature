@@ -19,7 +19,7 @@ Požiadavka: Plnohodnotná práca s poznámkami
 
   Scenár: Pridanie viacerých poznámok
     Tak v zozname sa zobrazia tieto nové poznámky
-    A existujú aj po refreshnutí appky
+    A poznámky existujú aj po refreshnutí appky
 
   Scenár: Zmena názvu a popisu poznámky
     Keď zmením poslednú poznámku tak, že názov nastavím na "Nový názov poznámky" a popis na "Nový popis poznámky"
@@ -45,4 +45,4 @@ Požiadavka: Plnohodnotná práca s poznámkami
   Scenár: Vymazanie všetkých poznámok
     Pokiaľ vymažem všetky poznámky
     Tak neexistujú žiadne poznámky
-    A neexistujú ani po refreshnutí appky
+    A poznámky neexistujú ani po refreshnutí appky

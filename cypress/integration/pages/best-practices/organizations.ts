@@ -49,4 +49,11 @@ export class Organizations {
     static clickSave() {
         cy.get('.submit-btn > .btn').click();
     }
+
+    static selectFirstCompany() {
+        App.visitAndWaitForApp();
+
+        // TODO: Add data-test attribute
+        cy.get(':nth-child(1) > kros-company-item > .company-grid > .actions > :nth-child(1)').click();
+    }
 }
