@@ -221,6 +221,9 @@ Skúste teraz sami pokryt testami Todos v appke. Čo treba pokryt?
 - vymazanie všetkých Todos, ktoré majú stav `Completed`
 - vymazanie všetkých Todos
 
+BONUS: Zabezpečte, aby testy definitívne zlyhali, až po 3 pokusoch (retrying pattern).
+Postup: https://github.com/Bkucera/cypress-plugin-retries
+
 Výsledné scenáre sú v súbore `cypress/integration/features/todos.feature`
 
 
