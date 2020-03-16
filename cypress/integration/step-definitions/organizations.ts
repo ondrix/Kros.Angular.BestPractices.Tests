@@ -7,26 +7,43 @@ Given('kliknem na tlačidlo organizácií', () => {
     BestPracticesHeader.clickAtOgranizations();
 });
 
-Given('existuje firma {string}', (comapnyName: string) => {
-    Organizations.shouldContainCompanyInList(comapnyName);
-});
-
 When('kliknem na tlačidlo pridať organizáciu', () => {
     Organizations.clickAdd();
 });
 
-When('zadám názov firmy {string} a IČO {string}', (companyName: string, bussinesId: string) => {
-    Organizations.typeInNewCompanyFields(companyName, bussinesId);
+When('zadám {string} {string} {string} {string} {string} {string}', (name: string, bussinessId: string, street: string, houseNumber: string, zipcode: string, city: string) => {
+    Organizations.typeInNewCompanyFields(
+        name,
+        bussinessId,
+        street,
+        houseNumber,
+        zipcode,
+        city);
+});
+
+When('zadám údaje', (dataTable) => {
+    const valuesArray = dataTable.rawTable[1];
+    Organizations.typeInNewCompanyFields(
+        valuesArray[0],
+        valuesArray[1],
+        valuesArray[2],
+        valuesArray[3],
+        valuesArray[4],
+        valuesArray[5]);
 });
 
 When('kliknem na tlačidlo uložiť', () => {
     Organizations.clickSave();
 });
 
-When('kliknem na tlačidlo vymazať', () => {
-    Organizations.clickRemove();
+When('zadám názov firmy {string} a Ulicu {string}', (companyName: string, street: string) => {
+    Organizations.typeInAnotherCompanyFields(companyName, street);
 });
 
 Then('v zozname sa zobrazí novo pridaná firma', () => {
     Organizations.shouldIncludeNewCompany();
+});
+
+Then('danú firmu neuložím', () => {
+    Organizations.shouldNotBeAbleToSaveNewCompany();
 });

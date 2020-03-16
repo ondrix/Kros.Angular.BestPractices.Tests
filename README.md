@@ -200,7 +200,7 @@ v ktorom založíme novú firmu s ľubovolným názvom a IČOm.
 
 ## 4.2 Pozadie scenára
 
-K požiadavke pridáme ďalší scenár, ktorý nám našu pridanú firmu vymaže. V tomto prípade
+K požiadavke pridáme ďalší scenár, ktorý nám pridá firmu s inými parametrami. V tomto prípade
 si zavedieme pozadie scenára.
 
 ## 4.3 Scenár s množstvom parametrov
