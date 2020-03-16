@@ -15,10 +15,6 @@ Given('kliknem na tlačidlo organizácií', () => {
     BestPracticesHeader.clickAtOgranizations();
 });
 
-Given('existuje firma {string}', (comapnyName: string) => {
-    Organizations.shouldContainCompanyInList(comapnyName);
-});
-
 When('kliknem na tlačidlo pridať organizáciu', () => {
     Organizations.clickAdd();
 });
@@ -31,10 +27,14 @@ When('kliknem na tlačidlo uložiť', () => {
     Organizations.clickSave();
 });
 
-When('kliknem na tlačidlo vymazať', () => {
-    Organizations.clickRemove();
+When('zadám názov firmy {string} a Ulicu {string}', (companyName: string, street: string) => {
+    Organizations.typeInAnotherCompanyFields(companyName, street);
 });
 
 Then('v zozname sa zobrazí novo pridaná firma', () => {
     Organizations.shouldIncludeNewCompany();
+});
+
+Then('danú firmu neuložím', () => {
+    Organizations.shouldNotBeAbleToSaveNewCompany();
 });
