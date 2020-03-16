@@ -65,6 +65,11 @@ When("kliknem na vymazanie ukončených poznámok", () => {
     Todos.deleteCompleteTodos();
 });
 
+When("zmením poslednú poznámku tak, že názov nastavím na {string} a popis na {string}", (todoName: string, todoDesc: string) => {
+    Todos.editLastTodo(todoName, todoDesc);
+});
+
+
 
 
 Then('v zozname sa zobrazia iba neukončené poznámky', () => {
@@ -85,32 +90,26 @@ Then('v zozname sa zobrazia tieto nové poznámky', () => {
 
 Then('existujú aj po refreshnutí appky', () => {
     App.reloadAndWaitForApp();
-    cy.wait(1000); // Waiting for loading app
-    BestPracticesHeader.clickAtTodos();
 
     Todos.existsAnyTodos();
 });
 
+Then('neexistujú žiadne poznámky', () => {
+    Todos.notExistsAnyTodos();
+});
 
+Then('neexistujú ani po refreshnutí appky', () => {
+    App.reloadAndWaitForApp();
 
-// Given('existuje firma {string}', (comapnyName: string) => {
-//     Organizations.shouldContainCompanyInList(comapnyName);
-// });
+    Todos.notExistsAnyTodos();
+});
 
+Then('sa tieto hodnoto zmenia', () => {
+    Todos.lastTodoHasNewValues();
+});
 
+Then('sú zmenené aj po refreshnutí stránky', () => {
+    App.reloadAndWaitForApp();
 
-// When('zadám názov firmy {string} a IČO {string}', (companyName: string, bussinesId: string) => {
-//     Organizations.typeInNewCompanyFields(companyName, bussinesId);
-// });
-
-// When('kliknem na tlačidlo uložiť', () => {
-//     Organizations.clickSave();
-// });
-
-// When('kliknem na tlačidlo vymazať', () => {
-//     Organizations.clickRemove();
-// });
-
-// Then('v zozname sa zobrazí novo pridaná firma', () => {
-//     Organizations.shouldIncludeNewCompany();
-// });
+    Todos.lastTodoHasNewValues();
+});

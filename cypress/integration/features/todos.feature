@@ -21,6 +21,11 @@ Požiadavka: Plnohodnotná práca s poznámkami
     Tak v zozname sa zobrazia tieto nové poznámky
     A existujú aj po refreshnutí appky
 
+  Scenár: Zmena názvu a popisu poznámky
+    Keď zmením poslednú poznámku tak, že názov nastavím na "Nový názov poznámky" a popis na "Nový popis poznámky"
+    Tak sa tieto hodnoto zmenia
+    A sú zmenené aj po refreshnutí stránky
+
   Náčrt Scenáru: Filtrovanie podľa stavu poznámky
     A poslednú poznámku nastavím ako ukončenú
     A zvolím si filter "<FilterType>"
@@ -36,3 +41,8 @@ Požiadavka: Plnohodnotná práca s poznámkami
     A poslednú poznámku nastavím ako ukončenú
     A kliknem na vymazanie ukončených poznámok
     Tak v zozname sa zobrazia iba neukončené poznámky
+
+  Scenár: Vymazanie všetkých poznámok
+    Pokiaľ vymažem všetky poznámky
+    Tak neexistujú žiadne poznámky
+    A neexistujú ani po refreshnutí appky

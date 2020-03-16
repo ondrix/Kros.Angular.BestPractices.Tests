@@ -1,6 +1,9 @@
 import { Browser } from "../browser";
 
 export class Todos {
+    private static todoName: string;
+    private static todoDesc: string;
+
     static typeInNewTodoFields(todoName: string, todoDesc: string) {
         cy.get('[data-test=add-todo-item-name]').type(todoName);
         cy.get('[data-test=add-todo-item-description]').type(todoDesc);
@@ -18,6 +21,10 @@ export class Todos {
     static existsAnyTodos() {
         cy.get('[data-test=todo-list-all-items] li')
             .should('have.length.greaterThan', 0);
+    }
+
+    static notExistsAnyTodos() {
+        cy.get('[data-test=todo-list-group-item]').should('have.length', 0);
     }
 
     static setIsDoneForLastTodo() {
@@ -72,5 +79,53 @@ export class Todos {
         cy.get('[data-test=todo-list-delete-completed-button]').click({force: true});
 
         Browser.waitForRoutes();
+    }
+
+    static editLastTodo(todoName: string, todoDesc: string) {
+        this.todoName = todoName;
+        this.todoDesc = todoDesc;
+
+        cy.get('[data-test=todo-list-all-items] [data-test=todo-list-group-item]:last-child [data-test=todo-item-edit-button]')
+            .last()
+            .as("lastEditButton");
+        cy.get('@lastEditButton').scrollIntoView();
+        cy.get('@lastEditButton').click({force: true});
+
+        // Klik na Close button
+        cy.get('[data-test=edit-todo-close-button-bottom-left]').click({force: true});
+        cy.get('@lastEditButton').click({force: true});
+
+        // Klik na horny krizik
+        cy.get('[data-test=edit-todo-close-button-top-right]').click({force: true});
+        cy.get('@lastEditButton').click({force: true});
+
+        // Zeditovanie poznamky
+        cy.get('[data-test=edit-todo-name-input]')
+            .clear()
+            .type(todoName);
+        cy.get('[data-test=edit-todo-description-input]')
+            .clear()
+            .type(todoDesc);
+
+
+        Browser.setupAwaitedRoutes([
+            {method: 'PUT', url: /organizations\/\d+\/ToDos/ }
+        ]);
+        cy.get('[data-test=edit-todo-save-button]').click({force: true});
+        Browser.waitForRoutes();
+    }
+
+    static lastTodoHasNewValues() {
+        cy.get('[data-test=todo-item-name]').last().should('have.text', this.todoName);
+
+        cy.get('[data-test=todo-list-all-items] [data-test=todo-list-group-item]:last-child [data-test=todo-item-edit-button]')
+            .last()
+            .as("lastEditButton");
+        cy.get('@lastEditButton').scrollIntoView();
+        cy.get('@lastEditButton').click({force: true});
+
+        cy.get('[data-test=edit-todo-description-input]').should("have.value", this.todoDesc);
+
+        cy.get('[data-test=edit-todo-close-button-top-right]').click({force: true});
     }
 }

@@ -1,4 +1,5 @@
 import { Browser } from "../browser";
+import { BestPracticesHeader } from "./best-practices-header";
 
 export class App {
 
@@ -16,5 +17,8 @@ export class App {
         ]);
         Browser.reload();
         Browser.waitForRoutes();
+
+        cy.wait(1000); // Waiting for loading app
+        BestPracticesHeader.clickAtTodos();
     }
 }

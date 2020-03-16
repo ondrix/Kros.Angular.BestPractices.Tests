@@ -221,4 +221,6 @@ Skúste teraz sami pokryt testami Todos v appke. Čo treba pokryt?
 - vymazanie všetkých Todos, ktoré majú stav `Completed`
 - vymazanie všetkých Todos
 
+Výsledné scenáre sú v súbore `cypress/integration/features/todos.feature`
+
 
