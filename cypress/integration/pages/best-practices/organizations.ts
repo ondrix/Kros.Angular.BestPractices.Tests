@@ -13,10 +13,27 @@ export class Organizations {
         cy.get('kros-company-item > .company-grid > .name').should('not.contain', this.companyName);
     }
 
-    static typeInNewCompanyFields(companyName: string, bussinesId: string) {
+    static typeInNewCompanyFields(
+        companyName: string, 
+        bussinesId: string,
+        street: string,
+        houseNumber: string,
+        zipcode: string,
+        city: string) {
+
         this.companyName = companyName;
-        cy.get('.name > .col').type(companyName);
-        cy.get('.organizationId > .col').type(bussinesId);
+        this.typeIfNotNullOrEmpty('[data-test=add-company-name]', companyName);
+        this.typeIfNotNullOrEmpty('[data-test=add-company-bussines-id]', bussinesId);
+        this.typeIfNotNullOrEmpty('[data-test=add-company-street]', street);
+        this.typeIfNotNullOrEmpty('[data-test=add-company-street-number]', houseNumber);
+        this.typeIfNotNullOrEmpty('[data-test=add-company-zipcode]', zipcode);
+        this.typeIfNotNullOrEmpty('[data-test=add-company-city]', city);
+    }
+
+    private static typeIfNotNullOrEmpty(selector: string, textToType: string) {
+        if (textToType != '') {
+            cy.get(selector).type(textToType);
+        }
     }
 
     static typeInAnotherCompanyFields(companyName: string, street: string) {

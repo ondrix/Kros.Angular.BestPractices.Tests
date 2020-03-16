@@ -7,15 +7,19 @@ Požiadavka: Manažment organizácií
     A navštívim stránku best practices
     A kliknem na tlačidlo organizácií
 
-  Scenár: Pridanie organizácie
+  Scenár: Pridanie organizácie s korektnými údajmi
     Keď kliknem na tlačidlo pridať organizáciu
-    A zadám názov firmy "Moja firm222" a IČO "5698741"
+    A zadám údaje
+      | Názov              | IČO     | Ulica     | Číslo | PSČ   | Mesto       |
+      | Moja organizacia 2 | 9588884 | Dlhocizna | 7     | 01001 | Žilina      |
     A kliknem na tlačidlo uložiť
     Tak v zozname sa zobrazí novo pridaná firma
 
-  Scenár: Pridanie organizecie bez ICO
+  Scenár: Pridanie organizácie s nekorektnými údajmi
     Keď kliknem na tlačidlo pridať organizáciu
-    A zadám názov firmy "Moja organizacia" a Ulicu "Hlavna"
+    A zadám údaje
+      | Názov              | IČO     | Ulica     | Číslo | PSČ   | Mesto       |
+      | Moja organizacia 3 |         | Kratka    | 9     | 95801 | Partizánske |
     Tak danú firmu neuložím
 
 

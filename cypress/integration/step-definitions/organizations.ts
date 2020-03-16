@@ -19,8 +19,15 @@ When('kliknem na tlačidlo pridať organizáciu', () => {
     Organizations.clickAdd();
 });
 
-When('zadám názov firmy {string} a IČO {string}', (companyName: string, bussinesId: string) => {
-    Organizations.typeInNewCompanyFields(companyName, bussinesId);
+When('zadám údaje', (dataTable) => {
+    const valuesArray = dataTable.rawTable[1];
+    Organizations.typeInNewCompanyFields(
+        valuesArray[0],
+        valuesArray[1],
+        valuesArray[2],
+        valuesArray[3],
+        valuesArray[4],
+        valuesArray[5]);
 });
 
 When('kliknem na tlačidlo uložiť', () => {
