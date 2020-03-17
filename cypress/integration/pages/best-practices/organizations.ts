@@ -2,7 +2,7 @@ export class Organizations {
     private static companyName: string;
 
     static shouldNotBeAbleToSaveNewCompany() {
-        cy.get('.submit-btn > .btn').should('be.disabled');
+        cy.get('[data-test=save-company-button]').should('be.disabled');
     }
 
     static shouldIncludeNewCompany() {
@@ -36,17 +36,11 @@ export class Organizations {
         }
     }
 
-    static typeInAnotherCompanyFields(companyName: string, street: string) {
-        this.companyName = companyName;
-        cy.get('.name > .col').type(companyName);
-        cy.get('.street > .col').type(street);
-    }
-
     static clickAdd() {
-        cy.get('.btn-outline-success').click();
+        cy.get('[data-test=add-company-button]').click();
     }
     
     static clickSave() {
-        cy.get('.submit-btn > .btn').click();
+        cy.get('[data-test=save-company-button]').click();
     }
 }
