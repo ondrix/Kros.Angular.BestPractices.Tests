@@ -8,6 +8,14 @@ import { Utils } from '../pages/utils';
  * Given
  */
 
+Given('som prihlásený', () => {
+  Browser.login();
+});
+
+Given('navštívim stránku best practices', () => {
+  Browser.visit('/');
+});
+
 Given('nie som prihlásený', () => {
   Browser.DeleteAccessToken();
 });
