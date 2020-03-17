@@ -24,7 +24,3 @@ Požiadavka: Manažment organizácií
       | Názov              | IČO     | Ulica     | Číslo | PSČ   | Mesto       |
       |                    | 9588884 | Dlhocizna | 7     | 01001 | Žilina      |
       | Moja organizacia 3 |         | Kratka    | 9     | 95801 | Partizánske |
-
-
-
-

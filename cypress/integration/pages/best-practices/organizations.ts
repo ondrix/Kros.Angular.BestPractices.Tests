@@ -1,3 +1,5 @@
+import { App } from "./app";
+
 export class Organizations {
     private static companyName: string;
 
@@ -42,5 +44,12 @@ export class Organizations {
     
     static clickSave() {
         cy.get('[data-test=save-company-button]').click();
+    }
+
+    static selectFirstCompany() {
+        App.visitAndWaitForApp();
+
+        // TODO: Add data-test attribute
+        cy.get(':nth-child(1) > kros-company-item > .company-grid > .actions > :nth-child(1)').click();
     }
 }

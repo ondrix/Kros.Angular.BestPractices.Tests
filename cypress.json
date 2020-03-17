@@ -8,5 +8,10 @@
     "OAuthUsername": "integrationtests@kros.sk",
     "OAuthPassword": "integrationtests",
     "UserEmail": "integrationtests@kros.sk",
-    "UserName": "Integration Tests"
+    "UserName": "Integration Tests",
+
+    "env":
+    {
+        "RETRIES": 3
+    }
 }
