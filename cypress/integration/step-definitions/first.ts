@@ -1,8 +1,15 @@
-import { Given, Then } from 'cypress-cucumber-preprocessor/steps';
+import { Given, Then, When } from 'cypress-cucumber-preprocessor/steps';
 
 
-Given(`som všetko dobre nastavil`, () => {});
+Given('navštívim stránku Krosu', () => {
+  cy.visit('https://www.kros.sk');
+});
 
-Then(`všetko funguje a otvorí mi Google!`, () => {
-  cy.visit('https://www.google.com')
+When('kliknem na odkaz ZPK', () => {
+  cy.get('.modreplnebez').click();
+});
+
+Then('budem na stránke imoz.kros.sk', () => {
+  cy.location('host').should('contain', 'imoz.kros.sk');
+  cy.location('pathname').should('contain', 'Login.aspx');
 });
