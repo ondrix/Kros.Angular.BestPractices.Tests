@@ -18,7 +18,7 @@ Cucumber (Gherkin) Full Support
 
 https://marketplace.visualstudio.com/items?itemName=alexkrechik.cucumberautocomplete 
 
- Najzákladnejšie nastavenia je potrebné vložiť do súboru .vs/settings.json
+Najzákladnejšie nastavenia je potrebné vložiť do súboru .vs/settings.json
 
 Ak adresár .vs neexistuje, môžeme ho vytvoriť ručne. Nastavenia sú uvedené nižšie:
 
@@ -36,9 +36,7 @@ Ak adresár .vs neexistuje, môžeme ho vytvoriť ručne. Nastavenia sú uveden�
 Stručný návod, ako používať Cypress je aj na našej Wiki https://krosza.sharepoint.com/:o:/s/Webovfakturcia/Eqb-iUaiiFhIll3Mg-YUzAcBq8LNoTAdOGGVhCiXT8pjaQ?e=gJA6XE
 
 
-
 # Level 1 - Založenie projektu a nakonfigurovanie Cypress + Cucumber + Typescript
-
 
 ### Založenie projektu
 V konzole sa nastav na adresár určený pre nový projekt, zadaj príkaz `npm init` a vyplň vlastnosti pre projekt. 
@@ -165,3 +163,17 @@ module.exports = {
     }
 };  
 ```
+
+
+# Level 2 - Registrácia užívateľov
+Pre pokrytie oblasti registrovania užívateľov budem postupovať takto:
+- vytvorím súbor `registration.feature` (pre scenáre) v cypress/integration/
+- vytovrím súbor `registration.ts` (definície krokov scenárov) v cypress/integration/step-definitions/
+- vytvorím všetky súbory v adresáry cypress/integration/pages/
+- vytvorím súbor `constants.ts` (konštanty celého projektu) v cypress/support/
+- do súboru `cypress.json` pridám nastavenie pre testovaciu appku
+  ```json
+  {
+    "baseUrl": "https://demo.todos.kros.wtf",
+  }
+  ```
