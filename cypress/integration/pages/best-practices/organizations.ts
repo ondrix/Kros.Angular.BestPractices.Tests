@@ -38,6 +38,12 @@ export class Organizations {
         }
     }
 
+    static typeInAnotherCompanyFields(companyName: string, street: string) {
+        this.companyName = companyName;
+        cy.get('.name > .col').type(companyName);
+        cy.get('.street > .col').type(street);
+    }
+
     static clickAdd() {
         cy.get('[data-test=add-company-button]').click();
     }
