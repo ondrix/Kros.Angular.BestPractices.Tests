@@ -1,0 +1,20 @@
+{
+  "name": "kros.angular.bestpractices.tests",
+  "version": "1.0.0",
+  "dependencies": {
+    "@cypress/webpack-preprocessor": "^4.1.3",
+    "@types/cypress-cucumber-preprocessor": "^1.14.0",
+    "cypress": "^4.1.0",
+    "cypress-cucumber-preprocessor": "^2.0.1",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.8.3",
+    "webpack": "^4.42.0"
+  },
+  "scripts": {
+    "cypress": "@powershell -NoProfile -ExecutionPolicy Unrestricted -Command ./cypress-open.ps1"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": false,
+    "stepDefinitions": "cypress/integration/step-definitions"
+  }
+}
