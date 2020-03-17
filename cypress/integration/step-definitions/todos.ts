@@ -67,7 +67,7 @@ Then('v zozname sa zobrazia tieto nové poznámky', () => {
 });
 
 Then('poznámky existujú aj po refreshnutí appky', () => {
-    App.reloadAndWaitForApp();
+    App.reloadAppAndGoToTodos();
     Todos.shouldExistsAnyTodos();
 });
 
@@ -76,7 +76,7 @@ Then('neexistujú žiadne poznámky', () => {
 });
 
 Then('poznámky neexistujú ani po refreshnutí appky', () => {
-    App.reloadAndWaitForApp();
+    App.reloadAppAndGoToTodos();
     Todos.shouldNotExistsAnyTodos();
 });
 
@@ -85,6 +85,6 @@ Then('sa tieto hodnoto zmenia', () => {
 });
 
 Then('sú zmenené aj po refreshnutí stránky', () => {
-    App.reloadAndWaitForApp();
+    App.reloadAppAndGoToTodos();
     Todos.shouldLastTodoHasNewValues();
 });

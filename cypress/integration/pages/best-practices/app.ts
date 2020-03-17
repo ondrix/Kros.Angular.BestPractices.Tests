@@ -11,7 +11,7 @@ export class App {
         Browser.waitForRoutes();
     }
 
-    public static reloadAndWaitForApp() {
+    public static reloadAppAndGoToTodos() {
         Browser.setupAwaitedRoutes([
             {method: 'GET', url: /organizations/ }
         ]);

@@ -1,3 +1,5 @@
+import { App } from "./app";
+
 export class Organizations {
     private static companyName: string;
 
