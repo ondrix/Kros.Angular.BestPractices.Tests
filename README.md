@@ -28,7 +28,7 @@ Ak adresár .vs neexistuje, môžeme ho vytvoriť ručne. Nastavenia sú uveden�
   "cucumberautocomplete.steps": [
     "cypress/**/*.ts"
   ],
-  "cucumberautocomplete.syncfeatures": "cypress/e2e/features/**/*feature",
+  "cucumberautocomplete.syncfeatures": "cypress/**/*feature",
   "explorer.compactFolders": false
 }
  ```
@@ -78,12 +78,12 @@ Ak nie:
 
 
 ### Nakonfigurovanie Cypress + Cucumber + Typescript
-Inštalácia balíčka `cypress-cucumber-preprocessor`. Stačí spustiť `npm install cypress-cucumber-preprocessor`. 
-Inštalácia balíčka `@cypress/webpack-preprocessor`. Stačí spustiť `npm install @cypress/webpack-preprocessor`. 
-Inštalácia balíčka `webpack`. Stačí spustiť `npm install webpack`. 
-Inštalácia balíčka `ts-loader`. Stačí spustiť `npm install ts-loader`. 
-Inštalácia balíčka `typescript`. Stačí spustiť `npm install typescript`. 
-Inštalácia balíčka `@types/cypress-cucumber-preprocessor`. Stačí spustiť `npm install @types/cypress-cucumber-preprocessor`. 
+Inštalácia balíčka `cypress-cucumber-preprocessor`. Stačí spustiť `npm install cypress-cucumber-preprocessor`. <br />
+Inštalácia balíčka `@cypress/webpack-preprocessor`. Stačí spustiť `npm install @cypress/webpack-preprocessor`. <br />
+Inštalácia balíčka `webpack`. Stačí spustiť `npm install webpack`. <br />
+Inštalácia balíčka `ts-loader`. Stačí spustiť `npm install ts-loader`. <br />
+Inštalácia balíčka `typescript`. Stačí spustiť `npm install typescript`. <br />
+Inštalácia balíčka `@types/cypress-cucumber-preprocessor`. Stačí spustiť `npm install @types/cypress-cucumber-preprocessor`. <br />
 
 Pridanie podpory pre features do súboru `cypress.json`:
 ```json
@@ -163,4 +163,12 @@ module.exports = {
       ]
     }
 };  
+```
+
+Pridanie tohto kódu do súboru `package.json` s týmto obsahom:
+```javascript
+"cypress-cucumber-preprocessor": {
+  "nonGlobalStepDefinitions": false,
+  "stepDefinitions": "cypress/integration/step-definitions"
+}
 ```
