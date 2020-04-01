@@ -18,9 +18,9 @@ Cucumber (Gherkin) Full Support
 
 https://marketplace.visualstudio.com/items?itemName=alexkrechik.cucumberautocomplete 
 
-Najzákladnejšie nastavenia je potrebné vložiť do súboru .vs/settings.json
+Najzákladnejšie nastavenia je potrebné vložiť do súboru `.vscode/settings.json`
 
-Ak adresár .vs neexistuje, môžeme ho vytvoriť ručne. Nastavenia sú uvedené nižšie:
+Ak adresár `.vscode` neexistuje, môžeme ho vytvoriť ručne. Nastavenia sú uvedené nižšie:
 
  ```
 {
