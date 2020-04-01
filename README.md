@@ -29,7 +29,7 @@ Ak adresár .vs neexistuje, môžeme ho vytvoriť ručne. Nastavenia sú uveden�
     "cypress/**/*.ts"
   ],
   "cucumberautocomplete.syncfeatures": "cypress/e2e/features/**/*feature",
-  "explorer.compactFolders": false,
+  "explorer.compactFolders": false
 }
  ```
 
@@ -46,7 +46,6 @@ V konzole sa nastav na adresár určený pre nový projekt, zadaj príkaz `npm i
 
 ### Pridanie Cypressu
 Inštalácia prebehne po zadaní príkazu `npm install cypress`. 
-Pridanie Cypress súborov prebehne po zadaní príkazu `npx cypress open`. 
 
 
 ### Nakonfigurovanie proxy pre Cypress (iba ak si za firemnou proxy)
