@@ -28,7 +28,7 @@ Ak adresár .vs neexistuje, môžeme ho vytvoriť ručne. Nastavenia sú uveden�
   "cucumberautocomplete.steps": [
     "cypress/**/*.ts"
   ],
-  "cucumberautocomplete.syncfeatures": "cypress/e2e/features/**/*feature",
+  "cucumberautocomplete.syncfeatures": "cypress/**/*feature",
   "explorer.compactFolders": false
 }
  ```
