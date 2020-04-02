@@ -10,6 +10,12 @@ Given('kliknem na tlačidlo organizácií', () => {
     BestPracticesHeader.clickAtOgranizations();
 });
 
+Given('vymažem všetky organizácie', () => {
+    cy.wait(300); // Waiting for add items to DOM
+    Organizations.deleteAllOrganizations();
+});
+
+
 When('kliknem na tlačidlo pridať organizáciu', () => {
     Organizations.clickAdd();
 });

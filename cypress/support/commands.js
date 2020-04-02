@@ -23,32 +23,30 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
-import * as constants from './constants'
-
 Cypress.Commands.add("login", () => {
     cy.request({
-        method: 'POST',
-        url: Cypress.config("OAuthUrl") + '/connect/token',
-        headers: {
-        "Content-Type": 'application/x-www-form-urlencoded'
-        },
-        body: {
-        mode: 'urlencoded',
-        client_id: Cypress.config("OAuthClientId"),
-        grant_type: 'password',
-        username: Cypress.config("OAuthUsername"),
-        password: Cypress.config("OAuthPassword")
-        }
-    })
-    .its('body')
-    .then((res) => {
-        let user = res;
-        window.localStorage.setItem('oidc.user:' +
-            Cypress.config("OAuthUrl") + '/:' +
-            Cypress.config("ProjectName"),
-            '{"access_token":"' +
-            user.access_token + '","token_type":"Bearer","profile":{"email":"' +
-            Cypress.config("UserEmail") + '", "name":"' +
-            Cypress.config("UserName") + '"}}');
-    })
+            method: 'POST',
+            url: Cypress.config("OAuthUrl") + '/connect/token',
+            headers: {
+                "Content-Type": 'application/x-www-form-urlencoded'
+            },
+            body: {
+                mode: 'urlencoded',
+                client_id: Cypress.config("OAuthClientId"),
+                grant_type: 'password',
+                username: Cypress.config("OAuthUsername"),
+                password: Cypress.config("OAuthPassword")
+            }
+        })
+        .its('body')
+        .then((res) => {
+            let user = res;
+            window.localStorage.setItem('oidc.user:' +
+                Cypress.config("OAuthUrl") + '/:' +
+                Cypress.config("ProjectName"),
+                '{"access_token":"' +
+                user.access_token + '","token_type":"Bearer","profile":{"email":"' +
+                Cypress.config("OAuthUsername") + '", "name":"' +
+                Cypress.config("UserName") + '"}}');
+        })
 });

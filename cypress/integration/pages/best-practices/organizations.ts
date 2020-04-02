@@ -58,4 +58,14 @@ export class Organizations {
         // TODO: Add data-test attribute
         cy.get(':nth-child(1) > kros-company-item > .company-grid > .actions > :nth-child(1)').click();
     }
+
+    static deleteAllOrganizations() {
+        cy.get('.list-group').then((container) => {
+            if (container.children(".list-group-item").length > 0) {
+                // Info about multiple parameters: https://docs.cypress.io/api/commands/click.html#Click-all-buttons-found-on-the-page
+                cy.get('[data-test=delete-company-button]').click({ multiple: true, force: true });
+                cy.get('.list-group-item').should('have.length', 0);
+            }
+        })
+    }
 }
