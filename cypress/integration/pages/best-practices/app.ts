@@ -5,7 +5,7 @@ export class App {
 
     public static visitAndWaitForApp() {
         Browser.setupAwaitedRoutes([
-            {method: 'GET', url: /organizations/ }
+            {method: 'GET', url: /organizations\/\d+\/.*/ }
         ]);
         Browser.visit('/company/list');
         Browser.waitForRoutes();

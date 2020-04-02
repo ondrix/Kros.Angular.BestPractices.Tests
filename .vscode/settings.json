@@ -3,6 +3,6 @@
     "cucumberautocomplete.steps": [
       "cypress/**/*.ts"
     ],
-    "cucumberautocomplete.syncfeatures": "cypress/integration/**/*feature",
+    "cucumberautocomplete.syncfeatures": "cypress/**/*feature",
     "explorer.compactFolders": false,
 }  

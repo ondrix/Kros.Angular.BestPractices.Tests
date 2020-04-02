@@ -187,7 +187,7 @@ Pre napísanie prvého testu potrebujeme 2 vytvoriť súbory:
 Začneme písaním scenára v .feature súbori
 
 
-# Level 4 - Scenáre 
+# Level 4 - Scenáre pre Organizations
 Napíšeme si komplikovanejšie scenáre a ukážeme si, čo všetko cucumber dokáže.
 Zároveň už využijeme aj Page Object Pattern.
 
