@@ -27,7 +27,7 @@ When('kliknem na odkaz vytvoriť nový účet', () => {
 When('vyplním registračné údaje užívateľa, ktorý sa ešte nikdy do systému neregistroval', () => {
   const userEmail = constants.USER_EMAIL;
   const atIndex = userEmail.lastIndexOf('@');
-  const randomUserEmail = userEmail.substring(0, atIndex) + Utils.randomLongId() + userEmail.substring(atIndex);
+  const randomUserEmail = userEmail.substring(0, atIndex) + '+' + Utils.randomLongId() + userEmail.substring(atIndex);
 
   IdentityServerPage.fillUserRegistrationData(randomUserEmail, constants.USER_PASSWORD, constants.USER_PASSWORD, true);
 });
