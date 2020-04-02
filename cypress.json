@@ -5,8 +5,7 @@
     "OAuthUrl": "https://login.kros.wtf",
     "ProjectName": "Demo.BestPractices",
     "OAuthClientId": "Demo.BestPractices.Postman",
-    "OAuthUsername": "integrationtests@kros.sk",
-    "OAuthPassword": "integrationtests",
-    "UserEmail": "integrationtests@kros.sk",
-    "UserName": "Integration Tests"
+    "OAuthUsername": "testuser+1@kros.sk",
+    "OAuthPassword": "12345678",
+    "UserName": "Testovací užívateľ"
 }

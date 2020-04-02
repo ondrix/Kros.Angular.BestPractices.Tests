@@ -1,3 +1,5 @@
+import { App } from "./app";
+
 export class Organizations {
     private static companyName: string;
 
@@ -36,11 +38,24 @@ export class Organizations {
         }
     }
 
+    static typeInAnotherCompanyFields(companyName: string, street: string) {
+        this.companyName = companyName;
+        cy.get('.name > .col').type(companyName);
+        cy.get('.street > .col').type(street);
+    }
+
     static clickAdd() {
         cy.get('[data-test=add-company-button]').click();
     }
     
     static clickSave() {
         cy.get('[data-test=save-company-button]').click();
+    }
+
+    static selectFirstCompany() {
+        App.visitAndWaitForApp();
+
+        // TODO: Add data-test attribute
+        cy.get(':nth-child(1) > kros-company-item > .company-grid > .actions > :nth-child(1)').click();
     }
 }
