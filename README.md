@@ -18,9 +18,10 @@ Cucumber (Gherkin) Full Support
 
 https://marketplace.visualstudio.com/items?itemName=alexkrechik.cucumberautocomplete 
 
-Najzákladnejšie nastavenia je potrebné vložiť do súboru .vs/settings.json
 
-Ak adresár .vs neexistuje, môžeme ho vytvoriť ručne. Nastavenia sú uvedené nižšie:
+Najzákladnejšie nastavenia je potrebné vložiť do súboru `.vscode/settings.json`
+
+Ak adresár `.vscode` neexistuje, môžeme ho vytvoriť ručne. Nastavenia sú uvedené nižšie:
 
  ```
 {
@@ -28,15 +29,17 @@ Ak adresár .vs neexistuje, môžeme ho vytvoriť ručne. Nastavenia sú uveden�
   "cucumberautocomplete.steps": [
     "cypress/**/*.ts"
   ],
-  "cucumberautocomplete.syncfeatures": "cypress/e2e/features/**/*feature",
-  "explorer.compactFolders": false,
+  "cucumberautocomplete.syncfeatures": "cypress/**/*feature",
+  "explorer.compactFolders": false
 }
  ```
 
 Stručný návod, ako používať Cypress je aj na našej Wiki https://krosza.sharepoint.com/:o:/s/Webovfakturcia/Eqb-iUaiiFhIll3Mg-YUzAcBq8LNoTAdOGGVhCiXT8pjaQ?e=gJA6XE
 
 
+
 # Level 1 - Založenie projektu a nakonfigurovanie Cypress + Cucumber + Typescript
+
 
 ### Založenie projektu
 V konzole sa nastav na adresár určený pre nový projekt, zadaj príkaz `npm init` a vyplň vlastnosti pre projekt. 
@@ -44,7 +47,6 @@ V konzole sa nastav na adresár určený pre nový projekt, zadaj príkaz `npm i
 
 ### Pridanie Cypressu
 Inštalácia prebehne po zadaní príkazu `npm install cypress`. 
-Pridanie Cypress súborov prebehne po zadaní príkazu `npx cypress open`. 
 
 
 ### Nakonfigurovanie proxy pre Cypress (iba ak si za firemnou proxy)
@@ -77,12 +79,12 @@ Ak nie:
 
 
 ### Nakonfigurovanie Cypress + Cucumber + Typescript
-Inštalácia balíčka `cypress-cucumber-preprocessor`. Stačí spustiť `npm install cypress-cucumber-preprocessor`. 
-Inštalácia balíčka `@cypress/webpack-preprocessor`. Stačí spustiť `npm install @cypress/webpack-preprocessor`. 
-Inštalácia balíčka `webpack`. Stačí spustiť `npm install webpack`. 
-Inštalácia balíčka `ts-loader`. Stačí spustiť `npm install ts-loader`. 
-Inštalácia balíčka `typescript`. Stačí spustiť `npm install typescript`. 
-Inštalácia balíčka `@types/cypress-cucumber-preprocessor`. Stačí spustiť `npm install @types/cypress-cucumber-preprocessor`. 
+Inštalácia balíčka `cypress-cucumber-preprocessor`. Stačí spustiť `npm install cypress-cucumber-preprocessor`. <br />
+Inštalácia balíčka `@cypress/webpack-preprocessor`. Stačí spustiť `npm install @cypress/webpack-preprocessor`. <br />
+Inštalácia balíčka `webpack`. Stačí spustiť `npm install webpack`. <br />
+Inštalácia balíčka `ts-loader`. Stačí spustiť `npm install ts-loader`. <br />
+Inštalácia balíčka `typescript`. Stačí spustiť `npm install typescript`. <br />
+Inštalácia balíčka `@types/cypress-cucumber-preprocessor`. Stačí spustiť `npm install @types/cypress-cucumber-preprocessor`. <br />
 
 Pridanie podpory pre features do súboru `cypress.json`:
 ```json
@@ -164,11 +166,42 @@ module.exports = {
 };  
 ```
 
+Pridanie tohto kódu do súboru `package.json` s týmto obsahom:
+```javascript
+"cypress-cucumber-preprocessor": {
+  "nonGlobalStepDefinitions": false,
+  "stepDefinitions": "cypress/integration/step-definitions"
+}
+```
+
+Vytvorenie súboru `cypress/integration/first.feature` s prvým scenárom:
+```
+# language: sk
+
+Požiadavka: Prvá požiadavka
+
+  Scenár: Prvý scenár
+    Pokiaľ som všetko dobre nastavil
+    Tak všetko funguje a otvorí mi Google!
+```
+
+Vytvorenie súboru `cypress/integration/step-definitions/first.ts` s krokmi scenáru:
+```typescript
+import { Given, Then } from 'cypress-cucumber-preprocessor/steps';
+
+
+Given(`som všetko dobre nastavil`, () => {});
+
+Then(`všetko funguje a otvorí mi Google!`, () => {
+  cy.visit('https://www.google.com')
+});
+```
+
 
 # Level 2 - Registrácia užívateľov
 Pre pokrytie oblasti registrovania užívateľov budem postupovať takto:
 - vytvorím súbor `registration.feature` (pre scenáre) v cypress/integration/
-- vytovrím súbor `registration.ts` (definície krokov scenárov) v cypress/integration/step-definitions/
+- vytvorím súbor `registration.ts` (definície krokov scenárov) v cypress/integration/step-definitions/
 - vytvorím všetky súbory v adresáry cypress/integration/pages/
 - vytvorím súbor `constants.ts` (konštanty celého projektu) v cypress/support/
 - do súboru `cypress.json` pridám nastavenie pre testovaciu appku
@@ -180,8 +213,8 @@ Pre pokrytie oblasti registrovania užívateľov budem postupovať takto:
 
 
 # Level 3 - Môj prvý test
-Pre napísanie prvého testu potrebujeme 2 vytvoriť súbory:
-- first.feature súbor (scenár) v cypress/integration/
-- first.ts súbor (definície krokov scenára) v cypress/integration/step-definitions 
+Pre napísanie prvého testu potrebujeme upraviť 2 súbory:
+- `first.feature` súbor (scenár) v cypress/integration/
+- `first.ts` súbor (definície krokov scenára) v cypress/integration/step-definitions 
 
-Začneme písaním scenára v .feature súbori
+Začneme písaním scenára v .feature súbori.
