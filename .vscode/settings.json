@@ -1,8 +1,8 @@
 {
-    "typescript.tsdk": "node_modules/typescript/lib",
-    "cucumberautocomplete.steps": [
-      "cypress/**/*.ts"
-    ],
-    "cucumberautocomplete.syncfeatures": "cypress/**/*feature",
-    "explorer.compactFolders": false,
-}  
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "cucumberautocomplete.steps": [
+    "cypress/**/*.ts"
+  ],
+  "cucumberautocomplete.syncfeatures": "cypress/**/*feature",
+  "explorer.compactFolders": false
+}

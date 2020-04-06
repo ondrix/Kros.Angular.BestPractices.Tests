@@ -171,6 +171,29 @@ Pridanie tohto kódu do súboru `package.json` s týmto obsahom:
 }
 ```
 
+Vytvorenie súboru `cypress/integration/first.feature` s prvým scenárom:
+```
+# language: sk
+
+Požiadavka: Prvá požiadavka
+
+  Scenár: Prvý scenár
+    Pokiaľ som všetko dobre nastavil
+    Tak všetko funguje a otvorí mi Google!
+```
+
+Vytvorenie súboru `cypress/integration/step-definitions/first.ts` s krokmi scenáru:
+```typescript
+import { Given, Then } from 'cypress-cucumber-preprocessor/steps';
+
+
+Given(`som všetko dobre nastavil`, () => {});
+
+Then(`všetko funguje a otvorí mi Google!`, () => {
+  cy.visit('https://www.google.com')
+});
+```
+
 
 # Level 2 - Registrácia užívateľov
 Pre pokrytie oblasti registrovania užívateľov budem postupovať takto:
@@ -232,5 +255,3 @@ BONUS: Zabezpečte, aby testy definitívne zlyhali, až po 3 pokusoch (retrying 
 Postup: https://github.com/Bkucera/cypress-plugin-retries
 
 Výsledné scenáre sú v súbore `cypress/integration/features/todos.feature`
-
-
